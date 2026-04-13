@@ -61,7 +61,8 @@ class ADNIDataset(Dataset):
         #dataset = str(self.dataframe.loc[idx, 'dataset'])
         
         # Construct image path for MCI/Stroke format
-        img_path = os.path.join(self.root_dir,  pat_id  + ".nii.gz")
+        # img_path = os.path.join(self.root_dir,  pat_id  + ".nii.gz")
+        img_path = os.path.join(self.root_dir, pat_id)
         sample = {"image": img_path}
         sample = self.transform(sample)
         return {"image": sample["image"], "label": torch.tensor(label, dtype=torch.float32)}
