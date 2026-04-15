@@ -26,7 +26,7 @@ logger:
 gpu:
   visible_device: "0" 
 train: 
-  freeze: "yes"
-  finetune: "no"
+  freeze: "no"
+  finetune: "yes"
   
  

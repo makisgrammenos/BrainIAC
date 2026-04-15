@@ -92,7 +92,7 @@ class AmyloidDataModule(pl.LightningDataModule):
     def setup(self, stage=None):
         image_size = tuple(self.config['data']['size'])
 
-        
+         
         self.train_dataset = ADNIDataset(
             csv_path=self.config['data']['csv_file'],
             root_dir=self.config['data']['root_dir'],
