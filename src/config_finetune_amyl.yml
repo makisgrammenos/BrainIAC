@@ -29,4 +29,7 @@ train:
   freeze: "no"
   finetune: "no"
   
- 
+
+trainer:
+  strategy: "auto"
+  precision: "16-mixed"
