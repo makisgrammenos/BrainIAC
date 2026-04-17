@@ -4,7 +4,7 @@ model:
 data:
   size: [96,96,96]
   batch_size: 64
-  num_workers: 4
+  num_workers: 14
   csv_file: "/var/local/storage/dha202305/ADNI_preprocessed/train_set.csv"
   val_csv: "/var/local/storage/dha202305/ADNI_preprocessed/test_set.csv"
   root_dir:  "/var/local/storage/dha202305/ADNI_preprocessed/final"
