@@ -48,9 +48,12 @@ class ViTBackboneNet(nn.Module):
 class Classifier(nn.Module):
     def __init__(self, d_model=768, num_classes=1):  # d_model=768 for ViT-B, num_classes=1 for regression
         super(Classifier, self).__init__()
-        self.fc = nn.Linear(d_model, num_classes)
+        self.fc = nn.Linear(d_model, 128)
+        self.fc2 = nn.Linear(128, num_classes)  # Identity layer for regression
     def forward(self, x):
         x = self.fc(x)
+        x = self.fc2(x)
+
         return x
 
 class SingleScanModel(nn.Module):
