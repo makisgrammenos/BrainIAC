@@ -101,11 +101,11 @@ def main():
         if dicom_dir in ("NOT_FOUND", "nan", ""):
             df.at[idx, "nifti_path"] = "NOT_FOUND"
             continue
-
+            
         # Filename from subject_id + image_id if available, else row index
-        if "subject_id" in df.columns and "image_id_mri" in df.columns:
+        if "subject_id" in df.columns and "loni_image" in df.columns:
             sid = str(row["subject_id"]).replace("/", "_")
-            iid = str(int(row["image_id_mri"])) if pd.notna(row["image_id_mri"]) else str(idx)
+            iid = str(int(row["loni_image"])) if pd.notna(row["loni_image"]) else str(idx)
             output_name = f"{sid}_{iid}.nii.gz"
         else:
             output_name = f"{idx}.nii.gz"
