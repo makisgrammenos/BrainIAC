@@ -5,8 +5,8 @@ data:
   size: [96,96,96]
   batch_size: 16
   num_workers: 8
-  csv_file: "/var/local/storage/dha202305/ADNI_preprocessed/train_set.csv"
-  val_csv: "/var/local/storage/dha202305/ADNI_preprocessed/test_set.csv"
+  csv_file: "/var/local/storage/dha202305/ADNI_preprocessed/train.csv"
+  val_csv: "/var/local/storage/dha202305/ADNI_preprocessed/test.csv"
   root_dir:  "/var/local/storage/dha202305/ADNI_preprocessed/final"
 
 simclrvit:
@@ -26,7 +26,7 @@ logger:
 gpu:
   visible_device: "0" 
 train: 
-  freeze: "no"
+  freeze: "yes"
   finetune: "no"
   
 
