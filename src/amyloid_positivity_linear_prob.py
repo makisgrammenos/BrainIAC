@@ -38,14 +38,14 @@ class AmyloidClassificationLightningModule(pl.LightningModule):
         return self.model(x)
 
     def training_step(self, batch, batch_idx):
-        x, y = batch['image'], batch['label']
+        x, y = batch['image'], batch['AMYLOID_STATUS']
         y_hat_logits = self(x)
         loss = self.criterion(y_hat_logits, y.unsqueeze(1).float())
         self.log('train_loss', loss, on_step=True, on_epoch=True, prog_bar=True)
         return loss
 
     def validation_step(self, batch, batch_idx):
-        x, y = batch['image'], batch['label']
+        x, y = batch['image'], batch['AMYLOID_STATUS']
         y_hat_logits = self(x)
         loss = self.criterion(y_hat_logits, y.unsqueeze(1).float())
         self.log('val_loss', loss, on_step=False, on_epoch=True, prog_bar=True)
