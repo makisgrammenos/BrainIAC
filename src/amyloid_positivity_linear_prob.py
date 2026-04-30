@@ -96,12 +96,12 @@ class AmyloidDataModule(pl.LightningDataModule):
         self.train_dataset = ADNIDataset(
             csv_path=self.config['data']['csv_file'],
             root_dir=self.config['data']['root_dir'],
-            transform=get_default_transform(image_size=image_size)
+            transform=get_default_transform(image_size=image_size),label_col='AMYLOID_STATUS'
         )
         self.val_dataset = ADNIDataset(
             csv_path=self.config['data']['val_csv'],
             root_dir=self.config['data']['root_dir'],
-            transform=get_validation_transform(image_size=image_size)
+            transform=get_validation_transform(image_size=image_size),label_col='AMYLOID_STATUS'
         )
 
     def train_dataloader(self):
