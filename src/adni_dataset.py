@@ -53,6 +53,7 @@ class ADNIDataset(Dataset):
         dropped_len = initial_len - len(self.dataframe)
         if dropped_len > 0:
             print(f"Dropped {dropped_len} samples due to NaN values in label column '{label_col}'")
+        self.dataframe = self.dataframe.reset_index(drop=True)
         self.root_dir = root_dir
         self.transform = transform if transform is not None else get_default_transform()
         self.path_col = path_col
