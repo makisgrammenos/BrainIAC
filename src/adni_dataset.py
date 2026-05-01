@@ -47,6 +47,12 @@ def get_validation_transform(image_size=(96,96,96)):
 class ADNIDataset(Dataset):
     def __init__(self, csv_path, root_dir, transform=None,path_col='nifti_path', label_col='label'):
         self.dataframe = pd.read_csv(csv_path, dtype={"pat_id": str, "dataset": str})
+        #drop nan values on label column and print how many samples were dropped
+        initial_len = len(self.dataframe)
+        self.dataframe = self.dataframe.dropna(subset=[label_col])
+        dropped_len = initial_len - len(self.dataframe)
+        if dropped_len > 0:
+            print(f"Dropped {dropped_len} samples due to NaN values in label column '{label_col}'")
         self.root_dir = root_dir
         self.transform = transform if transform is not None else get_default_transform()
         self.path_col = path_col
