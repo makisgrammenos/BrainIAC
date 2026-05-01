@@ -12,11 +12,11 @@ data:
 simclrvit:
   ckpt_path: "checkpoints/BrainIAC.ckpt"
 
-optim:
-  lr: 0.0008
+ooptim:
+  lr: 0.001
   momentum: 0.9
   weight_decay: 0.0001
-  clr: "no"
+
 
 logger:
   save_dir: "./checkpoints"
@@ -26,7 +26,7 @@ logger:
 gpu:
   visible_device: "0" 
 train: 
-  freeze: "yes"
+  freeze: "no"
   finetune: "no"
   
 
