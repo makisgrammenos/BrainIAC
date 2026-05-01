@@ -52,6 +52,7 @@ class Classifier(nn.Module):
         self.fc2 = nn.Linear(128, num_classes)  # Identity layer for regression
     def forward(self, x):
         x = self.fc(x)
+        x = F.relu(x)
         x = self.fc2(x)
 
         return x
