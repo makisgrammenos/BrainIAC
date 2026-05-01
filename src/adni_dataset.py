@@ -65,5 +65,5 @@ class ADNIDataset(Dataset):
         img_path = os.path.join(self.root_dir, pat_id)
         sample = {"image": img_path}
         sample = self.transform(sample)
-        return {"image": sample["image"], "label": torch.tensor(label, dtype=torch.float32)}
+        return {"image": sample["image"], self.label_col: torch.tensor(label, dtype=torch.float32)}
 
