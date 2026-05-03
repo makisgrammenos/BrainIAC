@@ -34,7 +34,7 @@ def infer(model, test_loader):
     with torch.no_grad():
         for sample in tqdm(test_loader, desc="Extracting ViT features", unit="batch"):
             inputs = sample['image'].to(device)
-            class_labels = sample['label'].float().to(device)
+            class_labels = sample[test_loader.dataset.label_col].float().to(device)
 
             # Get features from the ViT backbone model
             features = model(inputs)
